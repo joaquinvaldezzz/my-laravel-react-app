@@ -2,8 +2,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
-    "dev": "vite",
+    "build:vite": "vite build",
+    "dev:composer": "composer run dev",
+    "dev:vite": "vite",
     "format": "prettier --write ."
   },
   "dependencies": {
