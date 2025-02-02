@@ -1,0 +1,44 @@
+{
+  "printWidth": 100,
+  "semi": false,
+  "singleQuote": true,
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-packagejson",
+    "@shufo/prettier-plugin-blade",
+    "prettier-plugin-sh",
+    "prettier-plugin-tailwindcss"
+  ],
+  "overrides": [
+    {
+      "files": ["*.blade.php"],
+      "options": {
+        "parser": "blade",
+        "tabWidth": 2
+      }
+    }
+  ],
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^(react-dom/(.*)$)|^(react-dom$)",
+    "^(@inertiajs/react/(.*)$)|^(@inertiajs/react$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^types$",
+    "^@/types/(.*)$",
+    "^@/config/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/Components/ui/(.*)$",
+    "^@/Components/(.*)$",
+    "^@/registry/(.*)$",
+    "^@/styles/(.*)$",
+    "^@/app/(.*)$",
+    "^@/pages/(.*)$",
+    "",
+    "^[./]",
+    "",
+    "^@/public/(.*)$"
+  ],
+  "tailwindStylesheet": "./resources/css/app.css"
+}
