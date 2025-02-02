@@ -3,6 +3,7 @@
   "semi": false,
   "singleQuote": true,
   "plugins": [
+    "@prettier/plugin-xml",
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-packagejson",
     "@shufo/prettier-plugin-blade",
