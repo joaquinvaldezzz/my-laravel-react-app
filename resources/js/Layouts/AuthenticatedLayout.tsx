@@ -1,18 +1,18 @@
-import { PropsWithChildren, ReactNode, useState } from 'react'
-import { Link, usePage } from '@inertiajs/react'
+import { PropsWithChildren, ReactNode, useState } from "react";
+import { Link, usePage } from "@inertiajs/react";
 
-import ApplicationLogo from '@/Components/ApplicationLogo'
-import Dropdown from '@/Components/Dropdown'
-import NavLink from '@/Components/NavLink'
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink'
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import Dropdown from "@/Components/Dropdown";
+import NavLink from "@/Components/NavLink";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
 export default function Authenticated({
   header,
   children,
 }: PropsWithChildren<{ header?: ReactNode }>) {
-  const user = usePage().props.auth.user
+  const user = usePage().props.auth.user;
 
-  const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false)
+  const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -27,7 +27,7 @@ export default function Authenticated({
               </div>
 
               <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                <NavLink href={route("dashboard")} active={route().current("dashboard")}>
                   Dashboard
                 </NavLink>
               </div>
@@ -61,8 +61,8 @@ export default function Authenticated({
                   </Dropdown.Trigger>
 
                   <Dropdown.Content>
-                    <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
-                    <Dropdown.Link href={route('logout')} method="post" as="button">
+                    <Dropdown.Link href={route("profile.edit")}>Profile</Dropdown.Link>
+                    <Dropdown.Link href={route("logout")} method="post" as="button">
                       Log Out
                     </Dropdown.Link>
                   </Dropdown.Content>
@@ -77,14 +77,14 @@ export default function Authenticated({
               >
                 <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                   <path
-                    className={!showingNavigationDropdown ? 'inline-flex' : 'hidden'}
+                    className={!showingNavigationDropdown ? "inline-flex" : "hidden"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                   <path
-                    className={showingNavigationDropdown ? 'inline-flex' : 'hidden'}
+                    className={showingNavigationDropdown ? "inline-flex" : "hidden"}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
@@ -96,9 +96,9 @@ export default function Authenticated({
           </div>
         </div>
 
-        <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
+        <div className={(showingNavigationDropdown ? "block" : "hidden") + " sm:hidden"}>
           <div className="space-y-1 pt-2 pb-3">
-            <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
+            <ResponsiveNavLink href={route("dashboard")} active={route().current("dashboard")}>
               Dashboard
             </ResponsiveNavLink>
           </div>
@@ -110,8 +110,8 @@ export default function Authenticated({
             </div>
 
             <div className="mt-3 space-y-1">
-              <ResponsiveNavLink href={route('profile.edit')}>Profile</ResponsiveNavLink>
-              <ResponsiveNavLink method="post" href={route('logout')} as="button">
+              <ResponsiveNavLink href={route("profile.edit")}>Profile</ResponsiveNavLink>
+              <ResponsiveNavLink method="post" href={route("logout")} as="button">
                 Log Out
               </ResponsiveNavLink>
             </div>
@@ -127,5 +127,5 @@ export default function Authenticated({
 
       <main>{children}</main>
     </div>
-  )
+  );
 }

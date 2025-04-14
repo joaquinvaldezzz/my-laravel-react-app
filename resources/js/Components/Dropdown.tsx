@@ -5,36 +5,36 @@ import {
   SetStateAction,
   useContext,
   useState,
-} from 'react'
-import { InertiaLinkProps, Link } from '@inertiajs/react'
-import { Transition } from '@headlessui/react'
+} from "react";
+import { InertiaLinkProps, Link } from "@inertiajs/react";
+import { Transition } from "@headlessui/react";
 
 const DropDownContext = createContext<{
-  open: boolean
-  setOpen: Dispatch<SetStateAction<boolean>>
-  toggleOpen: () => void
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  toggleOpen: () => void;
 }>({
   open: false,
   setOpen: () => {},
   toggleOpen: () => {},
-})
+});
 
 const Dropdown = ({ children }: PropsWithChildren) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const toggleOpen = () => {
-    setOpen((previousState) => !previousState)
-  }
+    setOpen((previousState) => !previousState);
+  };
 
   return (
     <DropDownContext.Provider value={{ open, setOpen, toggleOpen }}>
       <div className="relative">{children}</div>
     </DropDownContext.Provider>
-  )
-}
+  );
+};
 
 const Trigger = ({ children }: PropsWithChildren) => {
-  const { open, setOpen, toggleOpen } = useContext(DropDownContext)
+  const { open, setOpen, toggleOpen } = useContext(DropDownContext);
 
   return (
     <>
@@ -42,33 +42,33 @@ const Trigger = ({ children }: PropsWithChildren) => {
 
       {open && <div className="fixed inset-0 z-40" onClick={() => setOpen(false)}></div>}
     </>
-  )
-}
+  );
+};
 
 const Content = ({
-  align = 'right',
-  width = '48',
-  contentClasses = 'py-1 bg-white',
+  align = "right",
+  width = "48",
+  contentClasses = "py-1 bg-white",
   children,
 }: PropsWithChildren<{
-  align?: 'left' | 'right'
-  width?: '48'
-  contentClasses?: string
+  align?: "left" | "right";
+  width?: "48";
+  contentClasses?: string;
 }>) => {
-  const { open, setOpen } = useContext(DropDownContext)
+  const { open, setOpen } = useContext(DropDownContext);
 
-  let alignmentClasses = 'origin-top'
+  let alignmentClasses = "origin-top";
 
-  if (align === 'left') {
-    alignmentClasses = 'ltr:origin-top-left rtl:origin-top-right start-0'
-  } else if (align === 'right') {
-    alignmentClasses = 'ltr:origin-top-right rtl:origin-top-left end-0'
+  if (align === "left") {
+    alignmentClasses = "ltr:origin-top-left rtl:origin-top-right start-0";
+  } else if (align === "right") {
+    alignmentClasses = "ltr:origin-top-right rtl:origin-top-left end-0";
   }
 
-  let widthClasses = ''
+  let widthClasses = "";
 
-  if (width === '48') {
-    widthClasses = 'w-48'
+  if (width === "48") {
+    widthClasses = "w-48";
   }
 
   return (
@@ -92,25 +92,25 @@ const Content = ({
         </div>
       </Transition>
     </>
-  )
-}
+  );
+};
 
-const DropdownLink = ({ className = '', children, ...props }: InertiaLinkProps) => {
+const DropdownLink = ({ className = "", children, ...props }: InertiaLinkProps) => {
   return (
     <Link
       {...props}
       className={
-        'block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:bg-gray-100 focus:outline-hidden ' +
+        "block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:bg-gray-100 focus:outline-hidden " +
         className
       }
     >
       {children}
     </Link>
-  )
-}
+  );
+};
 
-Dropdown.Trigger = Trigger
-Dropdown.Content = Content
-Dropdown.Link = DropdownLink
+Dropdown.Trigger = Trigger;
+Dropdown.Content = Content;
+Dropdown.Link = DropdownLink;
 
-export default Dropdown
+export default Dropdown;
