@@ -1,5 +1,5 @@
-import { Head } from '@inertiajs/react'
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout'
+import { Head } from "@inertiajs/react";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function Dashboard() {
   return (
@@ -16,5 +16,5 @@ export default function Dashboard() {
         </div>
       </div>
     </AuthenticatedLayout>
-  )
+  );
 }

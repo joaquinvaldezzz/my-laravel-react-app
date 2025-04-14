@@ -1,7 +1,7 @@
-import { PropsWithChildren } from 'react'
-import { Link } from '@inertiajs/react'
+import { PropsWithChildren } from "react";
+import { Link } from "@inertiajs/react";
 
-import ApplicationLogo from '@/Components/ApplicationLogo'
+import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Guest({ children }: PropsWithChildren) {
   return (
@@ -16,5 +16,5 @@ export default function Guest({ children }: PropsWithChildren) {
         {children}
       </div>
     </div>
-  )
+  );
 }
